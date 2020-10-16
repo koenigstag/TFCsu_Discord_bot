@@ -295,7 +295,7 @@ async def on_message(msg):
 
                     index = msg.content.find(':')
                     shodan_nick = msg.content[0:index]
-                    message_obj = bot.get_message(message_id)
+                    message_obj = bot.get_channel(main_channel_id).fetch_message(message_id)
 
                     if msg.content.endswith("!key " + str(code)):
 
@@ -309,8 +309,8 @@ async def on_message(msg):
                             s.cancel(event1)
 
                             time = datetime.now()
-                            print("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Succesfull nick change. Discord username - " + message_id.author.name  + ". New Discord nickname - " + game_nick + "_")
-                            logging.info("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Succesfull nick change. Discord username - " + message_id.author.name  + ". New Discord nickname - " + game_nick + "_")
+                            print("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Succesfull nick change. Discord username - " + message_obj.author.name  + ". New Discord nickname - " + game_nick + "_")
+                            logging.info("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Succesfull nick change. Discord username - " + message_obj.author.name  + ". New Discord nickname - " + game_nick + "_")
 
                             await message_obj.author.edit(nick= (game_nick + "_"))
 
@@ -324,8 +324,8 @@ async def on_message(msg):
                             s.cancel(event1)
 
                             time = datetime.now()
-                            print("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Unsuccesfull nick change due to different game nick. Discord username - " + message_id.author.name + ". Game nickname - " + shodan_nick + "")
-                            logging.info("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Unsuccesfull nick change due to different game nick. Discord username - " + message_id.author.name + ". Game nickname - " + shodan_nick + "")
+                            print("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Unsuccesfull nick change due to different game nick. Discord username - " + message_obj.author.name + ". Game nickname - " + shodan_nick + "")
+                            logging.info("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Unsuccesfull nick change due to different game nick. Discord username - " + message_obj.author.name + ". Game nickname - " + shodan_nick + "")
 
                     else:
 
@@ -337,8 +337,8 @@ async def on_message(msg):
                         s.cancel(event1)
 
                         time = datetime.now()
-                        print("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Unsuccesfull nick change due to incorrect key. Discord username - " + message_id.author.name + ". Game nickname - " + shodan_nick + "")
-                        logging.info("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Unsuccesfull nick change due to incorrect key. Discord username - " + message_id.author.name + ". Game nickname - " + shodan_nick + "")
+                        print("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Unsuccesfull nick change due to incorrect key. Discord username - " + message_obj.author.name + ". Game nickname - " + shodan_nick + "")
+                        logging.info("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Unsuccesfull nick change due to incorrect key. Discord username - " + message_obj.author.name + ". Game nickname - " + shodan_nick + "")
 
 
 bot.run(TOKEN)
