@@ -295,6 +295,7 @@ async def on_message(msg):
 
                     index = msg.content.find(':')
                     shodan_nick = msg.content[0:index]
+                    message_obj = bot.get_message(message_id)
 
                     if msg.content.endswith("!key " + str(code)):
 
@@ -302,8 +303,8 @@ async def on_message(msg):
 
                             nick_call = False
 
-                            await message_id.author.send("Верный ключ. Ваш ник изменен на " + game_nick + ". Приятного общения!")
-                            await message_id.add_reaction('✅')
+                            await message_obj.author.send("Верный ключ. Ваш ник изменен на " + game_nick + ". Приятного общения!")
+                            await message_obj.add_reaction('✅')
 
                             s.cancel(event1)
 
@@ -311,14 +312,14 @@ async def on_message(msg):
                             print("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Succesfull nick change. Discord username - " + message_id.author.name  + ". New Discord nickname - " + game_nick + "_")
                             logging.info("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Succesfull nick change. Discord username - " + message_id.author.name  + ". New Discord nickname - " + game_nick + "_")
 
-                            await message_id.author.edit(nick= (game_nick + "_"))
+                            await message_obj.author.edit(nick= (game_nick + "_"))
 
                         else:
 
                             nick_call = False
 
-                            await message_id.author.send("⛔ Ваш ник не совпадает с ником игрока, которому был выдан код.")
-                            await message_id.add_reaction('❌')
+                            await message_obj.author.send("⛔ Ваш ник не совпадает с ником игрока, которому был выдан код.")
+                            await message_obj.add_reaction('❌')
 
                             s.cancel(event1)
 
@@ -330,8 +331,8 @@ async def on_message(msg):
 
                         nick_call = False
 
-                        await message_id.author.send("⛔ Неверный ключ.")
-                        await message_id.add_reaction('❌')
+                        await message_obj.author.send("⛔ Неверный ключ.")
+                        await message_obj.add_reaction('❌')
 
                         s.cancel(event1)
 
