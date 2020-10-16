@@ -112,7 +112,7 @@ async def nick(msg, *args):
 
                 if delay_ended == True:
                     delay_ended = False
-                    await message_id.add_reaction('🕒')
+                    await bot.get_channel(main_channel_id).fetch_message(message_id).add_reaction('🕒')
 
                 message_id = msg.message
                 game_nick = args[0]
