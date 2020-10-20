@@ -122,7 +122,8 @@ def flip_flop():
 # принудительно выключаем программу
 @bot.command()
 async def halt(msg):
-    sys.exit()
+    if msg.author == bot.get_user(469850108440084492):
+        sys.exit()
     
     
     
@@ -224,7 +225,7 @@ async def nick(msg, *args):
 
                 if delay_ended == True:
                     delay_ended = False
-                    if message_id:
+                    if isinstance(message_id, discord.Message):
                         await message_id.add_reaction('🕒')
 
                 message_id = msg.message
