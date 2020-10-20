@@ -224,7 +224,8 @@ async def nick(msg, *args):
 
                 if delay_ended == True:
                     delay_ended = False
-                    await message_id.add_reaction('🕒')
+                    if message_id:
+                        await message_id.add_reaction('🕒')
 
                 message_id = msg.message
                 print(msg.message)
