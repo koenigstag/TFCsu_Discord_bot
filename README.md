@@ -1,2 +1,2 @@
-# TFCsu_Discord_bot
+# TFCsu_Discord_bot  [![deepcode](https://www.deepcode.ai/api/gh/badge?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwbGF0Zm9ybTEiOiJnaCIsIm93bmVyMSI6ImludHJ1c2hvayIsInJlcG8xIjoiVEZDc3VfRGlzY29yZF9ib3QiLCJpbmNsdWRlTGludCI6ZmFsc2UsImF1dGhvcklkIjoyMzgzMSwiaWF0IjoxNjAzMTgyODY0fQ.9CMfYIM7Wv2GsM3TctK_wua3ttwvu1YvYrJ48X0dQ2o)](https://www.deepcode.ai/app/gh/intrushok/TFCsu_Discord_bot/_/dashboard?utm_content=gh%2Fintrushok%2FTFCsu_Discord_bot)
 Discord bot for TFCsu guild.
