@@ -23,7 +23,7 @@ bot = commands.Bot(command_prefix='!', help_command=None, intents=intents) #ин
 
 # Конфигурация
 # =============================================================================================
-BOT_TOKEN = 'Njc4OTQ5NTk4NTMzOTEwNTI4.XkqPFg.Xems4eLyKylgUROzzyCdFWu-bys'
+BOT_TOKEN = ''
 #main
 main_channel_id = 764106268780396574 #644905699436134400 - канал #основной или #общий
 gamechat_channel_id = 764103166072717322 #542326584422563850 - канал #чат-игры
