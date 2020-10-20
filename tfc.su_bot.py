@@ -295,10 +295,10 @@ async def key(msg):
                             
                         try:
                             await message_id.author.edit(nick= (game_nick + "_"))
-                            print("\n [" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Succesfull nick change. Discord username - " + message_id.author.name  + ". New Discord nickname - " + game_nick + "_")
+                            print("\n[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Succesfull nick change. Discord username - " + message_id.author.name  + ". New Discord nickname - " + game_nick + "_")
                             logging.info("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Succesfull nick change. Discord username - " + message_id.author.name  + ". New Discord nickname - " + game_nick + "_")
                         except:
-                            cprint('    \nBot is missing permissions. Try to switch the \'can change nicknames\' permission.', 'red')
+                            print('    \nBot is missing permissions. Try to switch the \'can change nicknames\' permission.')
                             
                     else:
 
@@ -311,7 +311,7 @@ async def key(msg):
 
                         time = datetime.now()
                         
-                        print("\n [" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Unsuccesfull nick change due to different game nick. Discord username - " + message_id.author.name + ". Game nickname - " + shodan_nick + "")
+                        print("\n[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Unsuccesfull nick change due to different game nick. Discord username - " + message_id.author.name + ". Game nickname - " + shodan_nick + "")
                         logging.info("[" + time.strftime("%d-%m-%Y %H:%M:%S") + "] | Unsuccesfull nick change due to different game nick. Discord username - " + message_id.author.name + ". Game nickname - " + shodan_nick + "")
 
                 else:
