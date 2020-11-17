@@ -35,7 +35,7 @@ bot = commands.Bot(command_prefix='!', help_command=None, intents=intents) #ин
 
 # Конфигурация
 # =============================================================================================
-BOT_TOKEN = ''
+BOT_TOKEN = 'Njc4OTQ5NTk4NTMzOTEwNTI4.XkqPFg.hs9XoHsDEMvtJ6OqjtwPV0G19J0'
 # nick part
 main_channel_id = 764106268780396574 #644905699436134400 - канал #основной или #общий
 gamechat_channel_id = 764103166072717322 #542326584422563850 - канал #чат-игры
@@ -172,7 +172,7 @@ async def arguments(msg, *args): #проверка функции мульти �
 async def roadmap(msg, *argts):
     args = argts
     if isinstance(msg.channel, discord.channel.DMChannel):
-        with open(os.getcwd() + '/roadmap', 'r', encoding= 'utf-8') as t:
+        with open(os.getcwd() + '/data/roadmap', 'r', encoding= 'utf-8') as t:
             upd_text = t.read().replace("\'","\"")
         upd_json = json.loads(upd_text)
         items = upd_json['items']
@@ -224,7 +224,7 @@ async def roadmap(msg, *argts):
                             send_text = ""
                             
                             upd_text = str({"items":items}).replace("\'", "\"")
-                            with open(os.getcwd() + '/roadmap', 'w', encoding='utf-8') as t:
+                            with open(os.getcwd() + '/data/roadmap', 'w', encoding='utf-8') as t:
                                 t.write(upd_text)
                     elif len(true_args) > 1:
                         await msg.author.send("Укажите описание нового пункта после названия. !upd add ~Здесь находится название ~Здесь находится описание")
@@ -268,7 +268,7 @@ async def roadmap(msg, *argts):
                                 send_text = ""
                                 
                                 upd_text = str({"items":items}).replace("\'", "\"")
-                                with open(os.getcwd() + '/roadmap', 'w', encoding='utf-8') as t:
+                                with open(os.getcwd() + '/data/roadmap', 'w', encoding='utf-8') as t:
                                     t.write(upd_text)
                                 upd_text = ""
                             else:
@@ -298,11 +298,11 @@ async def roadmap(msg, *argts):
                             
                             upd_text = ""
                             upd_text = str({"items":items}).replace("\'", "\"")
-                            with open(os.getcwd() + '/roadmap', 'w', encoding='utf-8') as t:
+                            with open(os.getcwd() + '/data/roadmap', 'w', encoding='utf-8') as t:
                                 t.write(upd_text)
                             upd_text = ""
                             
-                            with open(os.getcwd() + '/rem_archive', 'r', encoding='utf-8') as t:
+                            with open(os.getcwd() + '/data/rem_archive', 'r', encoding='utf-8') as t:
                                 upd_text = t.read().replace("\'","\"")
                             arch_json = json.loads(upd_text)
 
@@ -313,7 +313,7 @@ async def roadmap(msg, *argts):
 
                             upd_text = str({"items":arch_arr}).replace("\'", "\"")
                             arch_arr = []
-                            with open(os.getcwd() + '/rem_archive', 'w', encoding='utf-8') as t:
+                            with open(os.getcwd() + '/data/rem_archive', 'w', encoding='utf-8') as t:
                                 t.write(upd_text)
                             upd_text = ""
                         else:
@@ -329,7 +329,7 @@ async def roadmap(msg, *argts):
                 if len(args) > 1 and not args[1] == '':  
                     if len(args) > 2 and not args[1] == '' and args[1] == 'descr':
                     # archive see descr
-                        with open(os.getcwd() + '/upd_archive', 'r', encoding='utf-8') as t:
+                        with open(os.getcwd() + '/data/upd_archive', 'r', encoding='utf-8') as t:
                             upd_text = t.read().replace("\'","\"")
                         upd_json = json.loads(upd_text)
                         arch_items = upd_json['items']
@@ -359,11 +359,11 @@ async def roadmap(msg, *argts):
                                 
                                 upd_text = ""
                                 upd_text = str({"items":items}).replace("\'", "\"")
-                                with open(os.getcwd() + '/roadmap', 'w', encoding='utf-8') as t:
+                                with open(os.getcwd() + '/data/roadmap', 'w', encoding='utf-8') as t:
                                     t.write(upd_text)
                                 upd_text = ""
 
-                                with open(os.getcwd() + '/upd_archive', 'r', encoding='utf-8') as t:
+                                with open(os.getcwd() + '/data/upd_archive', 'r', encoding='utf-8') as t:
                                     upd_text = t.read().replace("\'","\"")
                                 arch_json = json.loads(upd_text)
 
@@ -374,7 +374,7 @@ async def roadmap(msg, *argts):
 
                                 upd_text = str({"items":arch_arr}).replace("\'","\"")
                                 arch_arr = []
-                                with open(os.getcwd() + '/upd_archive', 'w', encoding='utf-8') as t:
+                                with open(os.getcwd() + '/data/upd_archive', 'w', encoding='utf-8') as t:
                                     t.write(upd_text)
                                 upd_text = ""
                             else:
@@ -382,7 +382,7 @@ async def roadmap(msg, *argts):
                     else:
                         await msg.author.send("Номер находиться за пределами массива (требования 1 <= num <= max).")
                 else:
-                    with open(os.getcwd() + '/upd_archive', 'r', encoding='utf-8') as t:
+                    with open(os.getcwd() + '/data/upd_archive', 'r', encoding='utf-8') as t:
                         upd_text = t.read().replace("\'","\"")
                     upd_json = json.loads(upd_text)
                     arch_items = upd_json['items']
@@ -428,7 +428,7 @@ async def translate(msg, *args):
             
         elif len(args) > 0 and not args[0] == "":
             if args[0] == "arrana" or args[0] == "arr":
-                with open(os.getcwd() + '/arrana_lang', 'r', encoding= 'utf-8') as t:
+                with open(os.getcwd() + '/data/arrana_lang', 'r', encoding= 'utf-8') as t:
                     upd_text = t.read().replace("\'","\"")
                 upd_json = json.loads(upd_text)
                 dict_words = upd_json['words']
@@ -459,7 +459,7 @@ async def translate(msg, *args):
                     await msg.channel.send("Перевод:\n" + output_text)
                     
             if args[0] == "russian" or args[0] == "rus":
-                with open(os.getcwd() + '/arrana_lang', 'r', encoding= 'utf-8') as t:
+                with open(os.getcwd() + '/data/arrana_lang', 'r', encoding= 'utf-8') as t:
                     upd_text = t.read().replace("\'","\"")
                 upd_json = json.loads(upd_text)
                 dict_words = upd_json['words']
@@ -496,7 +496,7 @@ async def translate(msg, *args):
 @bot.command(pass_content=True)
 async def alloy(msg, *args):
     if isinstance(msg.channel, discord.channel.DMChannel):
-        with open(os.getcwd() + '/alloys', 'r', encoding= 'utf-8') as t:
+        with open(os.getcwd() + '/data/alloys', 'r', encoding= 'utf-8') as t:
             upd_text = t.read().replace("\'","\"")
         upd_json = json.loads(upd_text)
         alloys = upd_json['alloys']
